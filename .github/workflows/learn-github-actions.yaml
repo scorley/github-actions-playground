@@ -5,8 +5,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
          - uses: actions/checkout@v2
-         - uses: actions/setup-node@v1
-            with:
-               node-version: 10.13
+         - name: setup node 10.13
+           uses: actions/setup-node@v1
+           with:
+             node-version: 10.13
          - run: npm install -g bats
          - run: bats -v
