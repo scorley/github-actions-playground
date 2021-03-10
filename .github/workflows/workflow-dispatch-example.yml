@@ -32,7 +32,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          echo test, and deploy your project.
+          echo ${{ toJSON(github.events.inputs.name) }}
           
       - name: Run another
         if: ${{ contains(github.events.inputs.name, 'foo') }}
