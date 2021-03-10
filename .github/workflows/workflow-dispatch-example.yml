@@ -35,6 +35,6 @@ jobs:
           echo test, and deploy your project.
           
       - name: Run another
-        if: ${{ github.events.inputs.name.indexOf('foo') > 1 }}
+        if: ${{ contains(github.events.inputs.name, 'foo') }}
         run: echo Hiya foo
      
