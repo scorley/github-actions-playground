@@ -31,7 +31,7 @@ jobs:
       - uses: actions/github-script@v3
         id: set-result
         with:
-          script: return ${{ fromJSON(GITHUB_RUN_NUMBER) }} + 200 
+          script: return ${{ fromJSON(github.run_number) }} + 200 
           result-encoding: string
 
       # Runs a set of commands using the runners shell
