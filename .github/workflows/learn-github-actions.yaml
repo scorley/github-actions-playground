@@ -14,10 +14,7 @@ jobs:
              node-version: 10.13
          - run: npm install -g bats
          - run: bats -v
-         - run: echo "Hello World" >> myfile.txt
-         - run: git add .
-         - run: git config user.email "$${{ secrets.MY_USERNAME }}"
-         - run: git config user.name "$${{ secrets.MY_USERNAME }}"
-         - run: git commit -m "adding myfile on push"
-         - run: git push
-         
+         - name: 'string fun'
+           run: echo '${{ format('-{0}-', env.REF_TAG) }}'
+           env:
+             REF_TAG: ${{ github.ref == 'develop' && 'dev' || '' }} 
