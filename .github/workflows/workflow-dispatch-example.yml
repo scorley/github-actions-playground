@@ -44,3 +44,4 @@ jobs:
         if: ${{ contains(github.event.inputs.name, 'foo') }}
         run: echo Hiya foo
      
+      - run: docker ps -a
