@@ -14,3 +14,8 @@ jobs:
              node-version: 10.13
          - run: npm install -g bats
          - run: bats -v
+         - run: echo "Hello World" >> myfile.txt
+         - run: git add .
+         - run: git commit -m "adding myfile on push"
+         - run: git push
+         
