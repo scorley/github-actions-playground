@@ -16,8 +16,8 @@ jobs:
          - run: bats -v
          - run: echo "Hello World" >> myfile.txt
          - run: git add .
-         - run: git config user.email "$${{ MY_USERNAME }}"
-         - run: git config user.name "$${{ MY_USERNAME }}"
+         - run: git config user.email "$${{ secrets.MY_USERNAME }}"
+         - run: git config user.name "$${{ secrets.MY_USERNAME }}"
          - run: git commit -m "adding myfile on push"
          - run: git push
          
