@@ -15,6 +15,7 @@ jobs:
          - run: npm install -g bats
          - run: bats -v
          - name: 'string fun'
+           if: ${{ true && false }}
            run: echo '${{ format('-{0}-', env.REF_TAG) }}'
            env:
              REF_TAG: ${{ github.ref == 'develop' && 'dev' || '' }} 
