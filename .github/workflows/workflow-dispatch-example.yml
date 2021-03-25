@@ -30,8 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     env: 
-       NAME: ${{ github.event.inputs.name }}
-       IS_FOO: ${{ env.NAME == 'foo' }}
+       IS_FOO: ${{ github.event.inputs.name == 'foo' }}
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
