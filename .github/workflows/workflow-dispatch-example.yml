@@ -31,7 +31,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     env: 
        NAME: ${{ github.event.inputs.name }}
-       IS_FOO: ${{ NAME == 'foo' }}
+       IS_FOO: ${{ env.NAME == 'foo' }}
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -55,7 +55,7 @@ jobs:
           echo ${{ steps.set-result.outputs.result }}
           
       - name: Run another
-        if: IS_FOO
+        if: env.IS_FOO
         run: echo Hiya foo
      
       - run: docker ps -a
