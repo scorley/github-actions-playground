@@ -39,6 +39,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        if: ${{ (github.event.inputs.name == 'foo') && (github.event.inputs.address == 'bar') }}
         run: echo ${{ github.event.inputs.address || 'default' }}
 
       - uses: actions/github-script@v3
