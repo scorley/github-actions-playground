@@ -1,5 +1,8 @@
 name: detached-workflow-dispatch
 on:
+  push:
+    branches:
+      feature/changereadme
   workflow_dispatch:
     inputs:
       name:
