@@ -1,0 +1,14 @@
+name: detached-workflow-dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: What is in a name?
+        required: true
+        default: 'world'
+jobs:
+  myJob:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: echo 'Hello ${{ github.event.inputs.name }}'
