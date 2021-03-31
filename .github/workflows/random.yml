@@ -1,0 +1,9 @@
+name: random
+on:
+  [push]
+jobs:
+  myJob:
+    runs-on: ubuntu-latest
+    
+    steps:
+      run: echo 'hello world'
