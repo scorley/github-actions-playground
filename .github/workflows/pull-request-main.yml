@@ -1,0 +1,13 @@
+name: pull-request-workflow
+on:
+  pull_request:
+    branches:
+      - feature/**
+      - hotfix/**    
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo 'hello main'
