@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment: 
+        description: 'Where to deploy'
+        required: true
+        default: 'dev'
+      version:
+        description: 'What version to deploy - will use version of hl-api in that environment if left blank'
+        required: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    env:
+      WHERE: ${{ github.event.inputs.environment }}
+      VERSION: ${{ github.event.inputs.environment }}
+      
+    steps:
+      - name: write default value
+        if: env.VERSION == ''
+        run: |
+          echo "VERSION=foo" >> $GITHUB_ENV
+      - name: output version
+        run: |
+          echo $VERSION
