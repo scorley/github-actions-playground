@@ -5,10 +5,16 @@ on:
         description: 'Which version'
         required: true
         default: '1.1.X'
+      appToDeploy: 
+        description: 'Which application'
+        required: true
+        default: 'foo|bar'
 
 jobs:
   deploy-app:
     runs-on: ubuntu-latest
+    env:
+      WHAT: ${{ github.event.inputs.appToDeploy }}
 
     steps:
       - name: determine minor version
@@ -27,6 +33,6 @@ jobs:
           echo 'ONE'
 
       - name: Deploy application
-        if: ${{ env.MINOR_VERSION > 1 }}
+        if: ${{ env.MINOR_VERSION > 1 && env.WHAT == 'foo' }}
         run:
-          echo 'GREATER'        
+          echo 'GREATER - foo'        
