@@ -12,9 +12,10 @@ jobs:
 
     steps:
       - name: determine minor version
-        run: 
+        run: |
           VER=`echo ${{ github.event.inputs.buildVersion }} | cut -d "." -f 2`
           echo "MINOR_VERSION=$VER" >> $GITHUB_ENV
+          
       - name: Deploy application
         if: ${{ env.MINOR_VERSION == 0 }}
         run:
