@@ -10,22 +10,22 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: determine minor version
-      run: 
-        VER=`echo ${{ github.event.inputs.buildVersion }} | cut -d "." -f 2`
-        echo "MINOR_VERSION=$VER" >> $GITHUB_ENV
-    - name: Deploy application
-      if: ${{ env.MINOR_VERSION == 0 }}
-      run:
-        echo 'ZERO'
+    steps:
+      - name: determine minor version
+        run: 
+          VER=`echo ${{ github.event.inputs.buildVersion }} | cut -d "." -f 2`
+          echo "MINOR_VERSION=$VER" >> $GITHUB_ENV
+      - name: Deploy application
+        if: ${{ env.MINOR_VERSION == 0 }}
+        run:
+          echo 'ZERO'
 
-    - name: Deploy application
-      if: ${{ env.MINOR_VERSION == 1 }}
-      run:
-        echo 'ONE'
+      - name: Deploy application
+        if: ${{ env.MINOR_VERSION == 1 }}
+        run:
+          echo 'ONE'
 
-    - name: Deploy application
-      if: ${{ env.MINOR_VERSION > 1 }}
-      run:
-        echo 'GREATER'        
+      - name: Deploy application
+        if: ${{ env.MINOR_VERSION > 1 }}
+        run:
+          echo 'GREATER'        
