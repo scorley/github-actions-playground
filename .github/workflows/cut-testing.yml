@@ -16,6 +16,7 @@ jobs:
     env:
       WHAT: ${{ github.event.inputs.appToDeploy }}
       IS_FOO: ${{ github.event.inputs.appToDeploy == 'foo' }}
+      IS_BAR: ${{ github.event.inputs.appToDeploy == 'bar' }}
 
     steps:
       - name: set version
@@ -39,6 +40,6 @@ jobs:
           echo 'ONE'
 
       - name: Deploy application
-        if: ${{ env.MINOR_VERSION > 1 && env.IS_FOO }}
+        if: ${{ env.MINOR_VERSION > 1 && !env.IS_BAR }}
         run:
           echo 'GREATER - foo'        
