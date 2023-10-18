@@ -39,6 +39,6 @@ jobs:
           echo 'ONE'
 
       - name: Deploy application
-        if: ${{ env.MINOR_VERSION > 1 && env.WHAT == 'foo' }}
+        if: ${{ env.MINOR_VERSION > 1 && env.IS_FOO }}
         run:
           echo 'GREATER - foo'        
