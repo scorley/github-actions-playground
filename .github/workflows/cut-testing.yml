@@ -17,9 +17,14 @@ jobs:
       WHAT: ${{ github.event.inputs.appToDeploy }}
 
     steps:
+      - name: set version
+        run: | 
+          VER=1.3.2
+          echo "VERSION=$VER" >> $GITHUB_ENV
+          
       - name: determine minor version
         run: |
-          VER=`echo ${{ github.event.inputs.buildVersion }} | cut -d "." -f 2`
+          VER=`echo ${{ env.VERSION }} | cut -d "." -f 2`
           echo "MINOR_VERSION=$VER" >> $GITHUB_ENV
           
       - name: Deploy application
