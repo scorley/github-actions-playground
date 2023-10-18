@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WHAT: ${{ github.event.inputs.appToDeploy }}
+      IS_FOO: ${{ github.event.inputs.appToDeploy == 'foo' }}
 
     steps:
       - name: set version
