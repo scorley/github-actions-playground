@@ -17,6 +17,7 @@ jobs:
       WHAT: ${{ github.event.inputs.appToDeploy }}
       IS_FOO: ${{ github.event.inputs.appToDeploy == 'foo' }}
       IS_BAR: ${{ github.event.inputs.appToDeploy == 'bar' }}
+      NAME: ${{ github.ref_name }}
 
     steps:
       - name: set version
